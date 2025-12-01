@@ -21,6 +21,14 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
 
+    @app.get("/")
+    def health_check() -> dict[str, str]:
+        return {
+            "status": "ok",
+            "service": "vetra-backend",
+            "message": "VETRA FastAPI backend is running",
+        }
+
     @app.on_event("startup")
     def startup_event() -> None:
         init_db()
@@ -32,4 +40,3 @@ def create_app() -> FastAPI:
 
 
 app = create_app()
-

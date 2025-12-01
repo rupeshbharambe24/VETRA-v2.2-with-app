@@ -1,3 +1,4 @@
+
 from __future__ import annotations
 
 import os
@@ -15,16 +16,15 @@ class Settings(BaseSettings):
             "http://localhost:5173",
             "http://127.0.0.1:5173",
             "http://localhost:4173",
+            "http://localhost:8080",
+            "http://127.0.0.1:8080",
         ]
     )
     db_path: str = Field(default_factory=lambda: os.path.join(os.getcwd(), "vetra_results.sqlite"))
 
-    class Config:
-        env_prefix = "VETRA_"
-        case_sensitive = False
+    model_config = SettingsConfigDict(env_prefix="VETRA_", case_sensitive=False)
 
 
 @lru_cache()
 def get_settings() -> Settings:
     return Settings()
-

@@ -1,3 +1,4 @@
+
 from __future__ import annotations
 
 import uuid
@@ -15,7 +16,7 @@ class InferenceService:
         self._loaded = False
 
     def load(self) -> None:
-        vetra_core.load()
+        vetra_core.load_models_and_scaling()
         self._loaded = True
 
     def _map_result(
@@ -24,17 +25,26 @@ class InferenceService:
         animal_type: Optional[str],
         notes: Optional[str],
     ) -> ProcessImageResponse:
-        cm = result.get("measurements_cm") or {}
+        cm = result.get("cm") or result.get("measurements_cm") or {}
         warnings = result.get("warnings") or []
         classification_raw = result.get("classification") or {}
 
-        # Extract values with fallbacks
         body_length = cm.get("oblique_body_length") or cm.get("body_length") or 0.0
         withers_height = cm.get("withers_height") or 0.0
         girth = cm.get("girth_length") or cm.get("girth") or 0.0
         body_score = cm.get("body_score") or classification_raw.get("overall_score") or 0.0
-        estimated_weight = cm.get("estimated_weight") or classification_raw.get("estimated_weight")
-        confidence = classification_raw.get("classification_confidence") or 90.0
+        estimated_weight = (
+            cm.get("estimated_weight")
+            or classification_raw.get("estimated_weight")
+            or cm.get("weight")
+        )
+
+        confidence = (
+            classification_raw.get("classification_confidence")
+            or classification_raw.get("breed_confidence")
+            or cm.get("confidence")
+            or 90.0
+        )
 
         classification = None
         if classification_raw:
@@ -58,17 +68,17 @@ class InferenceService:
             confidence=float(confidence),
             processingStatus="completed",
             timestamp=datetime.utcnow(),
-            animalType=animal_type,
+            animalType=animal_type or classification_raw.get("animal_type"),
             notes=notes,
             warnings=warnings,
             rawMeasurements=cm,
             classification=classification,
         )
 
-    def process_single_image(
+    def process_animal(
         self,
-        image_b64: str,
-        view_type: str = "side",
+        side_image_b64: str,
+        back_image_b64: Optional[str] = None,
         animal_type: Optional[str] = None,
         notes: Optional[str] = None,
     ) -> ProcessImageResponse:
@@ -78,16 +88,36 @@ class InferenceService:
                 detail="Inference service not initialized",
             )
 
-        image_path = vetra_core.decode_and_save(image_b64)
+        side_path = vetra_core.decode_and_save(side_image_b64)
+        back_path = vetra_core.decode_and_save(back_image_b64) if back_image_b64 else None
+
         try:
-            result = vetra_core.process_image_file(image_path, view_type=view_type, animal_type=animal_type)
+            if back_path:
+                result = vetra_core.run_full_vetra(side_path, back_path)
+                # Normalize structure from complete pipeline
+                side_cm = (result.get("side_view_analysis") or {}).get("measurements_cm") or {}
+                back_cm = (result.get("back_view_analysis") or {}).get("measurements_cm") or {}
+                classification = result.get("classification") or {}
+                warnings = []
+                merged_cm = {**side_cm, **back_cm}
+                merged_result = {
+                    "cm": merged_cm,
+                    "warnings": warnings,
+                    "classification": classification,
+                }
+                return self._map_result(merged_result, animal_type, notes)
+
+            # Side-only path
+            result = vetra_core.process_image_file(side_path, view_type="side", animal_type=animal_type)
             return self._map_result(result, animal_type, notes)
+
+        except HTTPException:
+            raise
         except Exception as exc:  # pragma: no cover - defensive
             raise HTTPException(
                 status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
-                detail=f"Failed to process image: {exc}",
+                detail=f"Failed to process image(s): {exc}",
             ) from exc
 
 
 inference_service = InferenceService()
-

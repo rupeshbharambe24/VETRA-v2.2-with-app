@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python
 """
 Run both the FastAPI backend and the Vite+React frontend with simple logs.
@@ -5,10 +6,10 @@ Run both the FastAPI backend and the Vite+React frontend with simple logs.
 Usage:
     python run_app.py
 """
-
 from __future__ import annotations
 
 import os
+import platform
 import subprocess
 import sys
 import time
@@ -39,7 +40,10 @@ def main() -> None:
         "--reload",
     ]
 
-    frontend_cmd = ["npm", "run", "dev"]
+    if platform.system().lower().startswith("win"):
+        frontend_cmd = ["npm.cmd", "run", "dev"]
+    else:
+        frontend_cmd = ["npm", "run", "dev"]
 
     backend_proc = None
     frontend_proc = None
@@ -48,12 +52,20 @@ def main() -> None:
         backend_proc = start_process(backend_cmd, backend_cwd, "backend")
         frontend_proc = start_process(frontend_cmd, frontend_cwd, "frontend")
 
+        print("[runner] Backend available at http://localhost:8000 (docs at /docs)")
+        print("[runner] Frontend (Vite) will usually be on http://localhost:5173 (or http://localhost:8080)")
         print("[runner] Both backend and frontend started. Press Ctrl+C to stop.\n")
 
         while True:
             time.sleep(1)
             backend_code = backend_proc.poll()
             frontend_code = frontend_proc.poll()
+
+            if frontend_code is not None and frontend_code != 0:
+                print(f"[runner] Frontend failed with exit code {frontend_code}. Stopping backend...")
+                if backend_proc and backend_proc.poll() is None:
+                    backend_proc.terminate()
+                break
 
             if backend_code is not None:
                 print(f"[runner] Backend exited with code {backend_code}. Stopping frontend...")
@@ -96,4 +108,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -1,3 +1,4 @@
+
 import { createClient } from '@supabase/supabase-js'
 
 // Initialize Supabase client with proper environment variables for Lovable
@@ -42,22 +43,28 @@ export interface ApiResponse<T> {
   error?: string;
 }
 
-// Process image for trait extraction
+export interface ProcessAnimalPayload {
+  sideImageData: string;
+  backImageData?: string | null;
+  animalType?: string;
+  notes?: string;
+}
+
+// Process images for trait extraction (side + optional back)
 export const processImage = async (
-  imageData: string,
-  animalType: string = 'cattle',
-  notes: string = ''
+  payload: ProcessAnimalPayload
 ): Promise<ApiResponse<TraitExtractionResult>> => {
+  const { sideImageData, backImageData = null, animalType = 'cattle', notes = '' } = payload
   try {
     if (apiBaseUrl) {
       const response = await fetch(`${apiBaseUrl}/api/v1/process-image`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          imageData,
+          sideImageData,
+          backImageData,
           animalType,
           notes,
-          viewType: 'side',
         }),
       })
 
@@ -74,7 +81,8 @@ export const processImage = async (
     if (supabase) {
       const { data, error } = await supabase.functions.invoke('process-image', {
         body: {
-          imageData,
+          sideImageData,
+          backImageData,
           animalType,
           notes,
         },
@@ -94,42 +102,29 @@ export const processImage = async (
     // Fallback: Return mock data if no API configured
     console.warn('API base URL not set, using mock data')
     await new Promise(resolve => setTimeout(resolve, 2000)) // Simulate processing delay
-    
-    // Generate more varied and realistic body scores using weighted distribution
-    // This simulates real-world distribution where most animals are average, fewer are weak/strong
-    const generateBodyScore = (): number => {
-      const rand = Math.random();
-      // 20% chance weak (1-3), 50% chance average (4-6), 30% chance strong (7-9)
-      if (rand < 0.20) {
-        return Math.floor(Math.random() * 3) + 1; // 1-3 (Weak)
-      } else if (rand < 0.70) {
-        return Math.floor(Math.random() * 3) + 4; // 4-6 (Average)
-      } else {
-        return Math.floor(Math.random() * 3) + 7; // 7-9 (Strong)
-      }
-    };
+    const rand = Math.random
+      ? Math.random
+      : () => 0.5
 
-    const bodyScore = generateBodyScore();
-    
-    // Correlate measurements with body score for more realistic results
-    const baseLength = 120 + (bodyScore * 5); // Higher score = larger animal
-    const baseHeight = 110 + (bodyScore * 3);
-    const baseGirth = 150 + (bodyScore * 5);
-    const baseWeight = 300 + (bodyScore * 25);
+    const bodyScore = 4 + Math.floor(rand() * 4)
+    const baseLength = 120 + (bodyScore * 5)
+    const baseHeight = 110 + (bodyScore * 3)
+    const baseGirth = 150 + (bodyScore * 5)
+    const baseWeight = 300 + (bodyScore * 25)
 
     const mockResult: TraitExtractionResult = {
       id: `mock_${Date.now()}`,
-      bodyLength: Math.round((baseLength + Math.random() * 15 - 7.5) * 100) / 100,
-      withersHeight: Math.round((baseHeight + Math.random() * 10 - 5) * 100) / 100,
-      girth: Math.round((baseGirth + Math.random() * 15 - 7.5) * 100) / 100,
+      bodyLength: Math.round((baseLength + rand() * 15 - 7.5) * 100) / 100,
+      withersHeight: Math.round((baseHeight + rand() * 10 - 5) * 100) / 100,
+      girth: Math.round((baseGirth + rand() * 15 - 7.5) * 100) / 100,
       bodyScore: bodyScore,
-      confidence: Math.round((Math.random() * 12 + 82) * 100) / 100, // 82-94%
+      confidence: Math.round((rand() * 12 + 82) * 100) / 100,
       processingStatus: 'completed',
       timestamp: new Date().toISOString(),
       animalType: animalType,
-      estimatedWeight: Math.round(baseWeight + Math.random() * 50 - 25),
+      estimatedWeight: Math.round(baseWeight + rand() * 50 - 25),
     }
-    
+
     return {
       success: true,
       data: mockResult
@@ -193,7 +188,6 @@ export const getResults = async (
     // Fallback: Return mock data if no API configured
     console.warn('API base URL not set, using mock data')
     await new Promise(resolve => setTimeout(resolve, 1000)) // Simulate network delay
-    
     const mockRecords: HistoricalRecord[] = [
       {
         id: '1',
@@ -233,7 +227,7 @@ export const getResults = async (
       record.animalType.toLowerCase().includes(search.toLowerCase()) ||
       record.notes.toLowerCase().includes(search.toLowerCase())
     );
-    
+
     return {
       success: true,
       data: mockRecords.slice(offset, offset + limit),
