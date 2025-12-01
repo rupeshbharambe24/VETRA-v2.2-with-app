@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "home": "ഹോം",
+    "vetra": "വെത്രാ",
+    "data": "ഡേറ്റ",
+    "schemes": "പദ്ധതികൾ",
+    "insurance": "ഇൻഷുറൻസ്", 
+    "helpline": "ഹെൽപ്പ് ലൈൻ",
+    "aboutUs": "ഞങ്ങളെക്കുറിച്ച്",
+    "contact": "ബന്ധപ്പെടുക"
+  },
+  "traitExtraction": {
+    "title": "സ്വഭാവ വേർതിരിവ്",
+    "startAnalysis": "വിശകലനം ആരംഭിക്കുക"
+  }
+}

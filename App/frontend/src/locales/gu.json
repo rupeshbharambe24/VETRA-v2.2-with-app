@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "home": "હોમ",
+    "vetra": "વેત્રા", 
+    "data": "ડેટા",
+    "schemes": "યોજનાઓ",
+    "insurance": "વીમો",
+    "helpline": "હેલ્પલાઇન",
+    "aboutUs": "અમારા વિશે",
+    "contact": "સંપર્ક"
+  },
+  "traitExtraction": {
+    "title": "લક્ષણ નિષ્કર્ષણ",
+    "startAnalysis": "વિશ્લેષણ શરૂ કરો"
+  }
+}

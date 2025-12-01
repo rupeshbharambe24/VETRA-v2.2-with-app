@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* VETRA Livestock App Design System - Modern Agricultural Theme
+Inspired by Bharat Pashudhan with professional green/blue palette
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Modern Agricultural Color Palette */
+    --background: 218 47% 98%;
+    --foreground: 215 25% 27%;
+
+    /* Professional Green Theme */
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 142 76% 46%;
+    
+    /* Livestock Blue Accent */
+    --secondary: 217 91% 60%;
+    --secondary-foreground: 0 0% 98%;
+    
+    /* Soft Agricultural Tones */
+    --accent: 80 60% 88%;
+    --accent-foreground: 142 76% 36%;
+    
+    /* Neutral Tones */
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    /* Card & Surface Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+    --card-shadow: 215 25% 27% / 0.1;
+    
+    /* Interactive Elements */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 142 76% 36%;
+    
+    /* Status Colors */
+    --success: 142 76% 36%;
+    --warning: 43 96% 56%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* VETRA Brand Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 46%));
+    --gradient-secondary: linear-gradient(135deg, hsl(217 91% 60%), hsl(217 91% 70%));
+    --gradient-hero: linear-gradient(135deg, hsl(142 76% 36%), hsl(217 91% 60%));
+    
+    /* Professional Shadows */
+    --shadow-card: 0 4px 6px -1px hsl(var(--card-shadow)), 0 2px 4px -1px hsl(var(--card-shadow));
+    --shadow-button: 0 4px 14px 0 hsl(142 76% 36% / 0.25);
+    --shadow-hero: 0 20px 25px -5px hsl(var(--card-shadow));
+    
+    /* Border Radius */
+    --radius: 12px;
+    --radius-button: 8px;
+    --radius-card: 16px;
+    
+    /* Popover Colors */
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+    
+    /* Sidebar Colors */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Mode Agricultural Theme */
+    --background: 215 28% 17%;
+    --foreground: 213 31% 91%;
+    
+    --primary: 142 76% 46%;
+    --primary-foreground: 215 28% 17%;
+    --primary-glow: 142 76% 56%;
+    
+    --secondary: 217 91% 70%;
+    --secondary-foreground: 215 28% 17%;
+    
+    --accent: 80 60% 25%;
+    --accent-foreground: 142 76% 46%;
+    
+    --muted: 215 28% 25%;
+    --muted-foreground: 213 20% 65%;
+    
+    --card: 215 28% 20%;
+    --card-foreground: 213 31% 91%;
+    --card-shadow: 0 0% 0% / 0.2;
+    
+    --border: 215 28% 25%;
+    --input: 215 28% 25%;
+    --ring: 142 76% 46%;
+    
+    --success: 142 76% 46%;
+    --warning: 43 96% 66%;
+    --destructive: 0 84% 70%;
+    --destructive-foreground: 215 28% 17%;
+    
+    /* Dark Mode Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(142 76% 46%), hsl(142 76% 56%));
+    --gradient-secondary: linear-gradient(135deg, hsl(217 91% 70%), hsl(217 91% 80%));
+    --gradient-hero: linear-gradient(135deg, hsl(142 76% 46%), hsl(217 91% 70%));
+    
+    --shadow-card: 0 4px 6px -1px hsl(var(--card-shadow)), 0 2px 4px -1px hsl(var(--card-shadow));
+    --shadow-button: 0 4px 14px 0 hsl(142 76% 46% / 0.25);
+    --shadow-hero: 0 20px 25px -5px hsl(var(--card-shadow));
+    
+    --popover: 215 28% 20%;
+    --popover-foreground: 213 31% 91%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  /* VETRA App Specific Styles */
+  .vetra-container {
+    @apply max-w-md mx-auto min-h-screen bg-background;
+  }
+  
+  .vetra-card {
+    @apply bg-card rounded-[var(--radius-card)] p-6 shadow-[var(--shadow-card)] border border-border;
+  }
+  
+  .vetra-button-primary {
+    @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground font-semibold py-4 px-6 rounded-[var(--radius-button)] shadow-[var(--shadow-button)] hover:shadow-lg active:scale-95 transition-all duration-200;
+  }
+  
+  .vetra-button-secondary {
+    @apply bg-gradient-to-r from-secondary to-secondary/90 text-secondary-foreground font-semibold py-3 px-5 rounded-[var(--radius-button)] shadow-md hover:shadow-lg active:scale-95 transition-all duration-200;
+  }
+  
+  .vetra-nav-button {
+    @apply bg-card hover:bg-accent border border-border rounded-[var(--radius)] p-4 shadow-sm hover:shadow-md transition-all duration-200 active:scale-95;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+  
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+}

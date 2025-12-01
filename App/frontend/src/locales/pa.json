@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "home": "ਹੋਮ",
+    "vetra": "ਵੇਤ੍ਰਾ",
+    "data": "ਡੇਟਾ", 
+    "schemes": "ਯੋਜਨਾਵਾਂ",
+    "insurance": "ਬੀਮਾ",
+    "helpline": "ਹੈਲਪਲਾਈਨ",
+    "aboutUs": "ਸਾਡੇ ਬਾਰੇ",
+    "contact": "ਸੰਪਰਕ"
+  },
+  "traitExtraction": {
+    "title": "ਵਿਸ਼ੇਸ਼ਤਾ ਕੱਢਣਾ",
+    "startAnalysis": "ਵਿਸ਼ਲੇਸ਼ਣ ਸ਼ੁਰੂ ਕਰੋ"
+  }
+}

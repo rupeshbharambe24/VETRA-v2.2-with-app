@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "home": "होम",
+    "vetra": "वेत्रा",
+    "data": "डेटा",
+    "schemes": "योजना",
+    "insurance": "विमा",
+    "helpline": "मदत केंद्र",
+    "aboutUs": "आमच्याबद्दल", 
+    "contact": "संपर्क"
+  },
+  "traitExtraction": {
+    "title": "गुणधर्म काढणे",
+    "startAnalysis": "विश्लेषण सुरू करा"
+  }
+}

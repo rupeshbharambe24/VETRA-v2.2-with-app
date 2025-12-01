@@ -1,0 +1,16 @@
+{
+  "navigation": {
+    "home": "ಮುಖ್ಯಪುಟ",
+    "vetra": "ವೆತ್ರಾ",
+    "data": "ಡೇಟಾ",
+    "schemes": "ಯೋಜನೆಗಳು", 
+    "insurance": "ವಿಮೆ",
+    "helpline": "ಸಹಾಯವಾಣಿ",
+    "aboutUs": "ನಮ್ಮ ಬಗ್ಗೆ",
+    "contact": "ಸಂಪರ್ಕ"
+  },
+  "traitExtraction": {
+    "title": "ಲಕ್ಷಣ ಹೊರತೆಗೆಯುವಿಕೆ",
+    "startAnalysis": "ವಿಶ್ಲೇಷಣೆ ಆರಂಭಿಸಿ"
+  }
+}

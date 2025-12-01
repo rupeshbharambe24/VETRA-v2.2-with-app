@@ -1,0 +1,293 @@
+{
+  "app": {
+    "name": "VETRA",
+    "subtitle": "Advanced Livestock Trait Extraction & Management System",
+    "poweredBy": "Powered by Digital Livestock Mission"
+  },
+  "navigation": {
+    "home": "Home",
+    "vetra": "Vetra",
+    "data": "Data",
+    "schemes": "Schemes",
+    "insurance": "Insurance",
+    "helpline": "Helpline",
+    "aboutUs": "About Us",
+    "contact": "Contact"
+  },
+  "home": {
+    "quickAccess": "Quick Access",
+    "traitExtraction": "Trait Extraction",
+    "pastRecords": "Past Records",
+    "heroDescription": "AI-powered livestock analysis for precise body measurements, health scoring, and weight estimation.",
+    "startAnalysis": "Start Analysis",
+    "viewRecords": "View Records",
+    "coreFeatures": "Core Features",
+    "coreFeaturesDescription": "Comprehensive livestock management tools at your fingertips",
+    "vetraDescription": "AI-powered trait extraction with body measurements, health scoring on 1-9 scale, and weight estimation.",
+    "dataDescription": "Access past analysis records, track livestock health trends, and download detailed reports.",
+    "features": {
+      "imageCapture": {
+        "title": "Image Capture",
+        "description": "Capture or upload livestock images for instant analysis"
+      },
+      "traitAnalysis": {
+        "title": "Trait Analysis",
+        "description": "Get precise measurements and health scores"
+      },
+      "dataStorage": {
+        "title": "Data Storage",
+        "description": "Store and track all analysis history"
+      },
+      "pdfReports": {
+        "title": "PDF Reports",
+        "description": "Download detailed analysis reports"
+      },
+      "instantResults": {
+        "title": "Instant Results",
+        "description": "Get analysis results in seconds"
+      },
+      "multiLanguage": {
+        "title": "Multi-Language",
+        "description": "Support for 13 Indian languages"
+      }
+    },
+    "additionalFeatures": {
+      "growthTracking": {
+        "title": "Growth Tracking",
+        "description": "Monitor livestock development over time"
+      },
+      "healthMonitoring": {
+        "title": "Health Monitoring",
+        "description": "Track body condition scores"
+      },
+      "sustainableFarming": {
+        "title": "Sustainable Farming",
+        "description": "Data-driven livestock management"
+      },
+      "support247": {
+        "title": "24/7 Support",
+        "description": "Emergency helpline access"
+      }
+    }
+  },
+  "traitExtraction": {
+    "title": "Trait Extraction",
+    "aiPowered": "AI-Powered Trait Analysis",
+    "description": "Upload or capture livestock images for instant body measurements",
+    "startAnalysis": "Start Analysis",
+    "selectImage": "Select Image",
+    "capturePhoto": "Capture Photo",
+    "uploadImage": "Upload Image",
+    "useDeviceCamera": "Use device camera",
+    "selectFromGallery": "Select from gallery",
+    "supportedFormats": "Supported formats: JPG, PNG, WebP • Max size: 10MB",
+    "processImage": "Process Image",
+    "analyzingTraits": "Analyzing Traits...",
+    "analysisComplete": "Analysis Complete",
+    "bodyLength": "Body Length (cm)",
+    "withersHeight": "Withers Height (cm)",
+    "girth": "Girth (cm)",
+    "confidence": "Confidence",
+    "viewAllRecords": "View All Records",
+    "newAnalysis": "New Analysis",
+    "invalidImage": "Invalid Image",
+    "processingFailed": "Processing Failed"
+  },
+  "dataRecords": {
+    "title": "Past Records",
+    "searchPlaceholder": "Search records...",
+    "noRecordsFound": "No Records Found",
+    "startAnalysis": "Start Analysis",
+    "startFirstAnalysis": "Start First Analysis",
+    "clearSearch": "Clear Search",
+    "loadMore": "Load More Results",
+    "summaryStats": "Summary Statistics",
+    "totalRecords": "Total Records",
+    "avgConfidence": "Avg Confidence",
+    "addNewAnalysis": "Add New Analysis",
+    "recordsUpdated": "Records Updated",
+    "foundRecords": "Found {{count}} records",
+    "errorLoading": "Error Loading Records",
+    "length": "Length",
+    "height": "Height",
+    "analysis": "Analysis"
+  },
+  "schemes": {
+    "title": "Government Schemes",
+    "availableSchemes": "Available Livestock Schemes",
+    "description": "Explore government schemes and subsidies available for livestock farmers and dairy entrepreneurs.",
+    "learnMore": "Learn More",
+    "applyForSchemes": "Apply for Schemes",
+    "visitOfficialWebsite": "Visit Official Website",
+    "eligibility": "Eligibility",
+    "benefits": "Benefits",
+    "applyDescription": "Visit the official Department of Animal Husbandry & Dairying website for detailed application procedures.",
+    "rashtriyaGokul": {
+      "name": "Rashtriya Gokul Mission",
+      "description": "Indigenous breeds development and conservation of high genetic merit bulls for natural service",
+      "eligibility": "Farmers, Cooperative Societies, NGOs",
+      "benefits": "Breeding stock, Training, Technical support"
+    },
+    "dairyDevelopment": {
+      "name": "National Programme for Dairy Development",
+      "description": "Enhancement of milk production and productivity of milch animals",
+      "eligibility": "Dairy farmers, SHGs, Cooperatives",
+      "benefits": "Infrastructure development, Breed improvement"
+    },
+    "healthControl": {
+      "name": "Livestock Health & Disease Control",
+      "description": "Prevention, control and containment of animal diseases",
+      "eligibility": "State Governments, UTs",
+      "benefits": "Vaccination, Disease monitoring"
+    }
+  },
+  "insurance": {
+    "title": "Livestock Insurance",
+    "insuranceCoverage": "Insurance Coverage",
+    "description": "Protect your livestock investment with comprehensive insurance coverage schemes.",
+    "insuranceHelpline": "Insurance Helpline",
+    "howToApply": "How to Apply",
+    "coverage": "Coverage",
+    "premium": "Premium",
+    "subsidy": "Subsidy",
+    "contactProviders": "Contact insurance providers for policy details and claim procedures.",
+    "livestockScheme": {
+      "name": "Livestock Insurance Scheme",
+      "description": "Insurance coverage for cattle, buffalo, sheep, goat, pig and poultry",
+      "coverage": "Death due to accident, disease, natural calamity",
+      "premium": "3.5% of sum insured for cattle & buffalo",
+      "subsidy": "50% premium subsidy by Government"
+    },
+    "pmfby": {
+      "name": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+      "description": "Crop insurance scheme that also covers fodder crops",
+      "coverage": "Weather risks, pests, diseases",
+      "premium": "2% for food grains, 5% for cash crops",
+      "subsidy": "Premium subsidy for small & marginal farmers"
+    },
+    "applySteps": {
+      "step1": "Visit nearest bank branch or insurance company office",
+      "step2": "Submit application with livestock health certificate",
+      "step3": "Pay premium amount (with government subsidy)",
+      "step4": "Receive insurance policy certificate"
+    }
+  },
+  "helpline": {
+    "title": "Emergency Helpline",
+    "emergencySupport": "Emergency Support",
+    "description": "Get immediate assistance for livestock health emergencies and veterinary consultations.",
+    "additionalSupport": "Additional Support",
+    "emergencyGuidelines": "Emergency Guidelines",
+    "quickTips": "Quick Tips",
+    "animalHelpline": "Animal Helpline",
+    "kisanCallCentre": "Kisan Call Centre",
+    "nationalEmergency": "National Emergency",
+    "veterinaryServices": "Veterinary Services",
+    "call": "Call",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "available247": "Available 24/7",
+    "guidelines": {
+      "g1": "Call immediately if livestock shows severe illness symptoms",
+      "g2": "Have animal identification details ready",
+      "g3": "Note symptoms, temperature, and recent changes",
+      "g4": "Follow veterinary advice until professional help arrives",
+      "g5": "Keep emergency contact numbers easily accessible"
+    },
+    "tipDescription": "For non-emergency queries about VETRA app usage, livestock management, or scheme applications, you can also reach out through our regular support channels during business hours."
+  },
+  "about": {
+    "title": "About VETRA",
+    "subtitle": "Veterinary Trait Extraction & Analysis System",
+    "version": "Version 1.0.0 | Powered by AI & Computer Vision",
+    "mission": "Mission",
+    "technology": "Technology",
+    "keyFeatures": "Key Features",
+    "developmentTeam": "Development Team",
+    "acknowledgments": "Acknowledgments",
+    "missionDescription": "To empower livestock farmers and veterinarians with cutting-edge AI technology for accurate, real-time trait extraction and analysis, supporting better livestock management decisions and improving agricultural productivity across India.",
+    "techAI": "AI-Powered Analysis: Advanced computer vision algorithms for precise measurements",
+    "techMobile": "Mobile-First Design: Optimized for smartphones and tablets",
+    "techOffline": "Offline Capability: Works without internet connectivity",
+    "techCloud": "Cloud Sync: Automatic data synchronization when online",
+    "techSecurity": "Data Security: End-to-end encryption for farmer data protection",
+    "features": {
+      "instantExtraction": {
+        "title": "Instant Trait Extraction",
+        "description": "Body length, height, girth measurements in seconds"
+      },
+      "dataManagement": {
+        "title": "Historical Data Management",
+        "description": "Track livestock growth and development over time"
+      },
+      "schemeIntegration": {
+        "title": "Government Scheme Integration",
+        "description": "Direct access to subsidies and insurance information"
+      },
+      "expertSupport": {
+        "title": "24/7 Expert Support",
+        "description": "Emergency helpline and veterinary consultation"
+      }
+    },
+    "teamDescription": "VETRA is developed under the National Digital Livestock Mission in collaboration with leading agricultural universities, AI research institutes, and the Department of Animal Husbandry & Dairying, Government of India.",
+    "teamLead": "Project Lead",
+    "teamAI": "AI Development",
+    "teamApp": "Mobile App",
+    "acknowledgmentDescription": "Special thanks to thousands of farmers, veterinarians, and livestock experts who contributed to the development and testing of VETRA across different regions of India.",
+    "visitWebsite": "Visit DAHD Website",
+    "copyright": "© 2024 Department of Animal Husbandry & Dairying"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "getInTouch": "Get In Touch",
+    "description": "Contact our support team for assistance with VETRA app, technical issues, or livestock-related queries.",
+    "officeHours": "Office Hours",
+    "quickContact": "Quick Contact",
+    "feedbackSuggestions": "Feedback & Suggestions",
+    "emergencyHelpline": "Emergency Helpline",
+    "emailSupport": "Email Support",
+    "visitOfficialWebsite": "Visit Official Website",
+    "sendFeedback": "Send Feedback",
+    "feedbackDescription": "Help us improve VETRA by sharing your experience and suggestions. Your feedback is valuable for enhancing our services.",
+    "technicalNote": "For technical issues, please include your device model and app version",
+    "offices": {
+      "headOffice": "Head Office",
+      "technicalSupport": "Technical Support",
+      "northRegion": "Regional Office (North)",
+      "southRegion": "Regional Office (South)"
+    },
+    "hours": {
+      "weekdays": "Monday - Friday:",
+      "saturday": "Saturday:",
+      "sunday": "Sunday:",
+      "emergency": "Emergency Helpline:",
+      "weekdaysTime": "9:00 AM - 6:00 PM",
+      "saturdayTime": "9:00 AM - 2:00 PM",
+      "sundayTime": "Closed",
+      "emergencyTime": "24/7 Available"
+    }
+  },
+  "language": {
+    "switchLanguage": "Switch Language",
+    "selectLanguage": "Select Language",
+    "languageChanged": "Language changed to {{language}}"
+  },
+  "common": {
+    "loading": "Loading...",
+    "retry": "Retry",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "close": "Close",
+    "ok": "OK",
+    "yes": "Yes",
+    "no": "No",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "clear": "Clear",
+    "refresh": "Refresh"
+  }
+}
