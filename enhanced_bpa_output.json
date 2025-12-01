@@ -1,0 +1,60 @@
+{
+  "evaluation_id": "EVAL_RGM_20251201_092139",
+  "evaluator_id": "VETRA_AI_SYSTEM",
+  "timestamp": "2025-12-01T09:21:39.731221",
+  "system_version": "VETRA_v2.0_Enhanced",
+  "animal_classification": {
+    "type": "cattle",
+    "breed": "jang",
+    "type_confidence": 94.0,
+    "breed_confidence": 91.0,
+    "age_category": "adult",
+    "sex": "female"
+  },
+  "physical_measurements": {
+    "side_view": {
+      "head_length": 51.32676003999363,
+      "oblique_body_length": 129.84764599070482,
+      "girth_length": 73.41841631103914,
+      "chest_depth": 68.20481792339672,
+      "withers_height": 130.0,
+      "rump_angle": 45
+    },
+    "back_view": {
+      "rump_width": 28.658022593278158,
+      "hip_width": 59.85877451565096,
+      "tail_length": 92.4790436043916,
+      "left_hip_height": 112.84325295155276,
+      "right_hip_height": 99.74629685556589,
+      "thurl_width": 44.25135146920293
+    }
+  },
+  "atc_evaluation": {
+    "trait_scores": {
+      "head_length": 8,
+      "oblique_body_length": 5,
+      "girth_length": 3,
+      "chest_depth": 7,
+      "withers_height": 6,
+      "rump_angle": 4,
+      "rump_width": 3,
+      "hip_width": 6,
+      "overall_score": 4.8
+    },
+    "overall_score": 4.8,
+    "classification": "Average",
+    "evaluation_date": "2025-12-01",
+    "program_eligibility": "RGM_Standard"
+  },
+  "quality_assurance": {
+    "measurement_validation": "PASSED",
+    "image_quality": "GOOD",
+    "keypoint_detection_confidence": "HIGH",
+    "system_confidence": "HIGH"
+  },
+  "recommendations": {
+    "breeding_program": "Rashtriya Gokul Mission",
+    "next_steps": "Monitor for improvement",
+    "ai_confidence": "HIGH"
+  }
+}

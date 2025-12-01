@@ -1,0 +1,15 @@
+kpt_shape: [10, 2]
+names: [animal]
+num_keypoints: 10
+path: d:\Projects\VETRA\Codes\VETRA v2.0 - N\yolo_side
+skeleton:
+- [0, 9]
+- [2, 4]
+- [5, 6]
+- [1, 7]
+- [1, 8]
+- [3, 4]
+test: images/test
+train: images/train
+val: images/val
+view_type: side

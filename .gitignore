@@ -1,0 +1,6 @@
+_pycache_/
+data/
+temp/
+*.log
+yolo_back/
+yolo_side/
