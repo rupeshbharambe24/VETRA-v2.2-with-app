@@ -38,7 +38,7 @@ CONFIG = {
     'back_view_labels': 'data/labels-back',
 
     # YOLO Training Parameters
-    'model_name': 'yolov8n-pose.pt',
+    'model_name': 'models/pretrained/yolov8n-pose.pt',
     'epochs': 200,
     'imgsz': 640,
     'batch_size': 16,
@@ -130,11 +130,11 @@ if not SKIP_TRAINING:
 
     # Train models if data present
     if side_train:
-        side_model = train_yolo_model('side', 'side_view.yaml', side_kpts)
+        side_model = train_yolo_model('side', 'configs/side_view.yaml', side_kpts)
     else:
         side_model = None
     if back_train:
-        back_model = train_yolo_model('back', 'back_view.yaml', back_kpts)
+        back_model = train_yolo_model('back', 'configs/back_view.yaml', back_kpts)
     else:
         back_model = None
 
@@ -195,7 +195,7 @@ def plot_training_results(view_type):
         axes[1,1].grid(True)
 
         plt.tight_layout()
-        plt.savefig(f'{view_type}_training_results.jpg', dpi=150, bbox_inches='tight')
+        plt.savefig(f'results/figures/{view_type}_training_results.jpg', dpi=150, bbox_inches='tight')
         plt.show()
     else:
         print(f"   ⚠️ Results file not found: {results_file}")
@@ -543,7 +543,7 @@ def visualize_side_view_samples():
             axes[idx].axis('off')
 
     plt.tight_layout()
-    plt.savefig('side_view_keypoints_visualization.jpg', dpi=150, bbox_inches='tight')
+    plt.savefig('results/figures/side_view_keypoints_visualization.jpg', dpi=150, bbox_inches='tight')
     plt.show()
 
     print("✅ Side view visualization completed and saved")
@@ -615,7 +615,7 @@ def visualize_back_view_samples():
             axes[idx].axis('off')
 
     plt.tight_layout()
-    plt.savefig('back_view_keypoints_visualization.jpg', dpi=150, bbox_inches='tight')
+    plt.savefig('results/figures/back_view_keypoints_visualization.jpg', dpi=150, bbox_inches='tight')
     plt.show()
 
     print("✅ Back view visualization completed and saved")
@@ -790,7 +790,7 @@ def create_comparative_visualization():
         ax2.axis('off')
 
         plt.tight_layout()
-        plt.savefig('comparative_view_visualization.jpg', dpi=150, bbox_inches='tight')
+        plt.savefig('results/figures/comparative_view_visualization.jpg', dpi=150, bbox_inches='tight')
         plt.show()
 
         print("✅ Comparative visualization completed and saved")
@@ -1111,7 +1111,7 @@ def calculate_scaling_factors():
                 print(f"  {measurement:20}: {reg.coef_[0]:.4f} cm/pixel, R²={reg.score(X, y):.3f} (n={len(valid_data)})")
 
     # Save scaling data for analysis
-    scaling_df.to_csv('scaling_calibration_data.csv', index=False)
+    scaling_df.to_csv('results/scaling_calibration_data.csv', index=False)
     print(f"💾 Scaling calibration data saved: scaling_calibration_data.csv")
 
     return scaling_factors
@@ -1373,8 +1373,8 @@ def batch_process_images(image_folder, view_type, output_file=None):
 
 # Example batch processing (commented out for now)
 # print("\n🔄 Running batch processing example...")
-# side_results = batch_process_images('data/side_view', 'side', 'side_view_measurements.csv')
-# back_results = batch_process_images('data/back_view', 'back', 'back_view_measurements.csv')
+# side_results = batch_process_images('data/side_view', 'side', 'results/side_view_measurements.csv')
+# back_results = batch_process_images('data/back_view', 'back', 'results/back_view_measurements.csv')
 
 
 # In[37]:
@@ -1478,7 +1478,7 @@ if pipeline_test_results:
         axes[1].axis('off')
 
     plt.tight_layout()
-    plt.savefig('measurement_results_visualization.jpg', dpi=150, bbox_inches='tight')
+    plt.savefig('results/figures/measurement_results_visualization.jpg', dpi=150, bbox_inches='tight')
     plt.show()
     print("✅ Measurement visualization saved")
 
@@ -2782,7 +2782,7 @@ def create_enhanced_bpa_output(high_acc_results, measurements_side, measurements
     print(json.dumps(enhanced_bpa, indent=2, default=str))
 
     # Save enhanced output
-    enhanced_file = "enhanced_bpa_output.json"
+    enhanced_file = "results/enhanced_bpa_output.json"
     with open(enhanced_file, 'w') as f:
         json.dump(enhanced_bpa, f, indent=2, default=str)
 

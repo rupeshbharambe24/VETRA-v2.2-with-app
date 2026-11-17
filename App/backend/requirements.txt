@@ -1,0 +1,19 @@
+# API
+fastapi
+uvicorn[standard]
+pydantic>=2
+pydantic-settings
+# ML pipeline imported from app/models/app_notebook_export.py
+# (if any of these fail to import, the backend falls back to deterministic mock output)
+ultralytics==8.3.203
+torch
+opencv-python
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+seaborn
+pyyaml
+openpyxl
+tensorflow

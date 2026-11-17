@@ -1,0 +1,15 @@
+# Versions seen in the notebook logs: Python 3.11, Ultralytics 8.3.203, torch 2.6.0+cu124
+ultralytics==8.3.203
+torch
+opencv-python
+numpy
+pandas
+openpyxl          # pandas.read_excel for the ground-truth measurement sheet
+pyyaml
+matplotlib
+seaborn
+tensorflow        # imported in Step 4.1 of yolo-model.ipynb; not needed for pose/measurement steps
+scikit-learn
+jupyter
+scipy
+pillow
